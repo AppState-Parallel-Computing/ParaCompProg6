@@ -1,5 +1,5 @@
-#ifndef SEQSORT1_H
-#define SEQSORT1_H
+#ifndef SEQSORT_H
+#define SEQSORT_H
 #include "Sorts.h"
 class SeqSort : public Sorts
 {

@@ -17,7 +17,7 @@ static void usage();
 static int32_t * createSortData(int64_t size);
 
 /* To run code:
- * ./sort -n <n> -t <t> [-s] [-1] [-2] [-3]
+ * ./sorter -n <n> -t <t> [-s] [-1] [-2] [-3]
  * size of the array: 1 << <n>; e.g. 2 to the power of <n>
  * number of threads: <t>
  * if -s option is provided, sequential version is executed
@@ -132,7 +132,7 @@ int32_t * createSortData(int64_t size)
 void parseArgs(int32_t argc, char * argv[], uint64_t & size, int32_t & threadCt, 
                bool & runSeq, bool * runPara)
 {
-  if (argc < 4) usage();  //must include: sort -n <n> and at least one of -s -1 -2 -3
+  if (argc < 4) usage();  //must include: sorter -n <n> and at least one of -s -1 -2 -3
   int32_t opt;
   while((opt = getopt(argc, argv, "n:t:s123")) != -1)
   {
@@ -191,7 +191,7 @@ void parseArgs(int32_t argc, char * argv[], uint64_t & size, int32_t & threadCt,
  */
 void usage()
 {
-  printf("usage: sort  -n <n> -t <t> [-s] [-1] [-2] [-3]\n\n");
+  printf("usage: sorter  -n <n> -t <t> [-s] [-1] [-2] [-3]\n\n");
   printf("\tRandomly generates an array of size (1 << <n>) integers and sorts the\n");
   printf("\tarray using up to four different techniques. If the -s option is provided,\n");
   printf("\ta sequential sort is performed. Three different parallel sorts are available,\n");
