@@ -14,7 +14,7 @@ Sorts::Sorts(uint64_t size_, int32_t * input)
 {
   size = size_;
   data = new int32_t[size];
-  for (int32_t i = 0; i < size; i++)
+  for (int64_t i = 0; i < (long int) size; i++)
   { 
     data[i] = input[i];
   }
@@ -36,7 +36,7 @@ bool Sorts::increasing()
    * result using the match function.
    */
   bool increasingFlag = false;
-  for (int32_t i = 1; i < size; i++)
+  for (int64_t i = 1; i < (long int) size; i++)
   { 
     if (data[i-1] < data[i]) 
     {
@@ -77,11 +77,11 @@ bool Sorts::match(Sorts * sortObj)
     printf("arrays have different sizes: %ld != %ld\n", size, sortObj->size);
     return false;
   } 
-  for (int32_t i = 0; i < size; i++)
+  for (int64_t i = 0; i < (long int) size; i++)
   { 
     if (data[i] != sortObj->data[i])
     {
-      printf("sort results have different values at index %d: %ld != %ld\n", 
+      printf("sort results have different values at index %ld: %d != %d\n", 
              i, data[i], sortObj->data[i]);
       return false;
     }

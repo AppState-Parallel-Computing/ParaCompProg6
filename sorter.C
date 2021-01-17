@@ -53,7 +53,7 @@ int32_t main(int32_t argc, char * argv[])
   /* create data to sort */
   data = createSortData(size);
 
-  SeqSort * seq;                      //pointer to sequential sort object
+  SeqSort * seq = NULL;               //pointer to sequential sort object
   double seqTime;                     //amount of time that sequential sort takes
   double guessTime = size/(1 << 14);  //estimated time for sequential sort
   guessTime = guessTime * guessTime * .835;
@@ -172,7 +172,7 @@ void parseArgs(int32_t argc, char * argv[], uint64_t & size, int32_t & threadCt,
   /* use at least two threads and not more than the number of cores */
   if (threadCt < 2 || threadCt > sysconf(_SC_NPROCESSORS_ONLN)) 
   {
-    printf("-t argument must be greater than 1 and less than %d.\n", 
+    printf("-t argument must be greater than 1 and less than %ld.\n", 
            sysconf(_SC_NPROCESSORS_ONLN) + 1); 
     usage();
   }  
@@ -200,7 +200,7 @@ void usage()
   printf("\tor an estimated sequential sort time.\n\n");
   printf("\t<n> must be greater than 5. The size of the array to sort will be \n");
   printf("\t2 to the power of <n> (1 << <n>).\n\n");
-  printf("\t<t> must be greater than 1 and less than %d.\n\n", 
+  printf("\t<t> must be greater than 1 and less than %ld.\n\n", 
          sysconf(_SC_NPROCESSORS_ONLN) + 1);
   printf("\t-s causes sequential sort to be performed and parallel results to\n");
   printf("\tbe compared to sequential result.\n\n");

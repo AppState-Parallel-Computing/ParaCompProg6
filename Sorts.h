@@ -14,6 +14,6 @@ class Sorts
     bool increasing();
     std::string getDescription();
     virtual double sort() = 0;
-    ~Sorts();
+    virtual ~Sorts();
 };
 #endif

@@ -1,5 +1,5 @@
-NODEBUGFLAGS = -std=c++14 -fopenmp -O2
-DEBUGFLAGS = -g -std=c++14 -fopenmp 
+NODEBUGFLAGS = -std=c++14 -fopenmp -O2 -Wall -Werror
+DEBUGFLAGS = -g -std=c++14 -fopenmp -Wall -Werror
 CFLAGS = $(NODEBUGFLAGS)
 OBJS = sorter.o Sorts.o ParaSort1.o ParaSort2.o ParaSort3.o SeqSort.o
 CC = g++
