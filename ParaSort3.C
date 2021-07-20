@@ -36,11 +36,14 @@ double ParaSort3::sort()
    * by creating 8 threads to do that (that is, 8 threads per each iteration of
    * the i loop). Treat the array so that it is divided into 8 chunks so that each
    * of the threads calculates count for one chunk of the array. Those counts need
-   * to be added together to calculate the destination of data[i]. (Basically, you'll
-   * want to put the j loop inside of another loop that is executed 8 times.  But the
-   * j loop indices won't range from 0 to size - 1.  They'll only iterate through
+   * to be added together (a reduction) to calculate the destination of data[i].  
+   * (Basically, you'll want to put the j loop inside of another loop that is executed 
+   * 8 times.  But the j loop indices won't range from 0 to size - 1.  They'll only iterate through
    * 1/8th of the array. 
-   * Use a lambda expression for clean code.
+   * Use a lambda expression for clean code. That lambda expression will be executed
+   * by a thread to figure out the value of count for some X[i] and 1/8 of the
+   * array.  (All counts are added together to determine the final value for count.)
+   *
    */
 
   TIMERSTART(para)

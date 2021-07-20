@@ -27,7 +27,8 @@ double ParaSort1::sort()
 {
   /* This code is the most straightforward modification of the code in
    * problem 2, page 218, to make it parallel. However. an array of int32_t 
-   * types are used instead of a vector.
+   * types are used instead of a vector. You'll need to dynamically allocate
+   * a tmp array and then copy that into data after the sort. Use a memcpy.
    */
   TIMERSTART(para)
   //Use a parallel for with threadCt threads to parallelize the outermost loop

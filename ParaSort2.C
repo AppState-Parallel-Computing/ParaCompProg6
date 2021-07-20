@@ -31,6 +31,7 @@ double ParaSort2::sort()
    * instead of using a parallel for, it should create a task to handle
    * one iteration of the outer loop.  Thus, it will create size tasks.
    * In addition, threadCt threads will be created to handle the size tasks.
+   * Task parallelism is covered in section 6.6.
    *
    * Use a lambda expression for clean code.  The lambda should be executed
    * by the task.
