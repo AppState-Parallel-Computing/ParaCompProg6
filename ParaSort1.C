@@ -31,7 +31,7 @@ double ParaSort1::sort()
    * a tmp array and then copy that into data after the sort. Use a memcpy.
    */
   TIMERSTART(para)
-  //Use a parallel for with threadCt threads to parallelize the outermost loop
+  //Use a parallel for pragma with threadCt threads to parallelize the outermost loop
   //Need to be careful about not sharing variables.  
   
   
