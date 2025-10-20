@@ -4,18 +4,13 @@ CFLAGS = $(NODEBUGFLAGS)
 OBJS = sorter.o Sorts.o ParaSort1.o ParaSort2.o ParaSort3.o SeqSort.o
 CC = g++
 .C.o: 
-	scl enable devtoolset-7 'bash --rcfile <(echo "  \
-	$(CC) -c $(CFLAGS) -o $@ $<; \
-	exit")'
-     
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 all: 
 	make sorter 
 
 sorter: $(OBJS)
-	scl enable devtoolset-7 'bash --rcfile <(echo "  \
-	$(CC) $(OBJS) -fopenmp -o sorter; \
-	exit")'
+	$(CC) $(OBJS) -fopenmp -o sorter
 
 sorter.o: Sorts.h SeqSort.h ParaSort1.h ParaSort2.h ParaSort3.h
 

@@ -22,8 +22,8 @@ static int32_t * createSortData(int64_t size);
  * number of threads: <t>
  * if -s option is provided, sequential version is executed
  * if -1 option is provided, parallel version 1 is executed
- * if -2 option is provided, parallel version 1 is executed
- * if -3 option is provided, parallel version 1 is executed
+ * if -2 option is provided, parallel version 2 is executed
+ * if -3 option is provided, parallel version 3 is executed
  */
 int32_t main(int32_t argc, char * argv[])
 {
@@ -55,8 +55,7 @@ int32_t main(int32_t argc, char * argv[])
 
   SeqSort * seq = NULL;               //pointer to sequential sort object
   double seqTime;                     //amount of time that sequential sort takes
-  double guessTime = size/(1 << 14);  //estimated time for sequential sort
-  guessTime = guessTime * guessTime * .835;
+  double guessTime = size * size * 2.796e-9;  //estimated time for sequential sort
   if (runSeq)
   {
     /* Run the sequential sort. This is used to check for correctness */

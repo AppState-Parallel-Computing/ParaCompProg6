@@ -35,17 +35,18 @@ bool Sorts::increasing()
    * means the sort failed.  A better test is to compare to the known
    * result using the match function.
    */
-  bool increasingFlag = false;
+  bool increasingFlag = true;
   for (int64_t i = 1; i < (long int) size; i++)
   { 
-    if (data[i-1] < data[i]) 
+    if (data[i-1] > data[i]) 
     {
-      increasingFlag = true;
+      increasingFlag = false;
+      break;
     } 
   }
   if (increasingFlag == false)
   {
-    printf("array is not in increasing order\n");
+    printf("Error: array is not in increasing order\n");
     return false;
   }
   return true;
@@ -81,7 +82,7 @@ bool Sorts::match(Sorts * sortObj)
   { 
     if (data[i] != sortObj->data[i])
     {
-      printf("sort results have different values at index %ld: %d != %d\n", 
+      printf("Error: sort results have different values at index %ld: %d != %d\n", 
              i, data[i], sortObj->data[i]);
       return false;
     }

@@ -3,31 +3,17 @@ Be sure the code has been compiled with the NODEBUGFLAGS to get the best perform
 Omit the -s option to avoiding running the slower sequential version
 (The sequential time is estimated if it isn't actually executed.)
 
-Note: even the parallel version will be slow for the (1 << 20) array size
-
 arraySize     numThreads     Speedup 1.      Speedup 2.     Speedup 3.
-(1 << 15)        24         
-(1 << 15)        48       
-(1 << 18)        24      
-(1 << 18)        48   
+(1 << 15)        16         
+(1 << 15)        32      
+(1 << 18)        16      
+(1 << 18)        32   
 
-
-2. What is the asymptotic time complexity for the sequential sort for array
-of size n? Explain your answer.
-
-
-3. What is the asymptotic time complexity for the parallel sorts assuming that
-the number of threads is p. Explain your answers.
-
-a. Parallel Sort 1
-b. Parallel Sort 2
-c. Parallel Sort 3
-
-4. Your results should indicate that increasing the number of threads also
+2. Your results should indicate that increasing the number of threads also
 causes an increase in the speedup.  Explain why.
 
 
-5. Your results should indicate that there is a higher speedup for the
-larger array size.  Explain why.
+3. Your results should indicate that there is a higher speedup for the
+larger array size for the same number of threads.  Explain why.
 
 
